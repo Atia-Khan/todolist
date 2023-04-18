@@ -1,38 +1,49 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 
-const TodoForm = (addTodo) => {
+const TodoForm = () => {
+  const [inputTitle, setInputTitle] =useState('')
+  const [inputDesc, setInputDesc] =useState('')
+  const [inputDate, setInputDate] =useState()
 
-    const [value, setTodo] =useState('');
-    const [listDate, setdec] = useState('');
-    const [printlist, setprintlist] = useState('');
-    
+  const handleForm = (e) =>{
+e.preventDefault();
 
-    function addTodoSubmit(event){
-        event.preventDefault();
-
-    setprintlist(`Hello ${value} ${listDate}!`);
-    // setFirstName('');
-    // setLastName('');
-  console.log(value);
-        if(value){
-            addTodo(value)
-
-            setValue('');
-
-        }
-        
-
-    }
+  }
   return (
     <div>
-        <form onSubmit ={addTodoSubmit}>
-      Todo: <input type='text' placeholder='Your List to save' todo={value} onChange={(event)=> setTodo(event.target.todo)} /> 
-      Detail: <input type='detail' placeholder='Details' detail={value} onChange={(event)=> setdec(event.target.detail)} /> 
-      Date: <input type='date' date={listDate} onChange = {(event) => setListDate(event.target.date)} />
+      <h4>add tofay toddo</h4>
+      <div className='main-section'>
+        <form className='form-section' onSunbmit={handleForm}>
+          <label >Title: </label>
+          <input type='text' 
+          className='titletext'
+           id='title'
+           name='Title'
+           value={title}
+           onChange={e => setInputTitle(e.target.value)}
+/>
 
-      <button type = 'submit' >Add Todo</button>
-      </form>
-      <p>{printlist}</p>
+<label >Description: </label>
+          <input type='text' 
+          className='titletext'
+           id='desc'
+           name='Desc'
+           value={desc}
+           onChange={e => setInputDesc(e.target.value)}
+/>
+
+<label >Date: </label>
+          <input type='date' 
+          className='titletext'
+           id='date'
+           name='date'
+           value={date}
+           onChange={e => setInputDate(e.target.value)}
+/>
+
+        </form>
+
+      </div>
     </div>
   )
 }

@@ -1,20 +1,38 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
-const TodoForm = () => {
+const TodoForm = ({onSubmit, todos}) => {
   const [inputTitle, setInputTitle] =useState('')
   const [inputDesc, setInputDesc] =useState('')
-  const [inputDate, setInputDate] =useState()
+  const [inputDate, setInputDate] =useState('')
+
+  useEffect(() => {
+    if(todos){
+      setInputTitle(todos.inputTitle);
+      setInputDesc(todos.inputDesc);
+      setInputDate(todos.inputDate);
+
+    }
+  }, [todos]);
 
   const handleForm = (e) =>{
 e.preventDefault();
+
+if(todos) {
+  onSubmit(todos.id, inputTitle, inputDesc, inputDate);
+}else {
+  onSubmit(null, inputTitle, inputDesc, inputDate);
+}
+setInputTitle('');
+setInputDesc('');
+setInputDate('');
 
   }
   return (
     <div>
       <h4>Add today's Todos</h4>
       <div className='main-section'>
-        <form className='form-section' onSunbmit={handleForm}>
-          <label >Title: </label>
+        <form className='form-section' onSubmit={handleForm}>
+          <label>Title: </label>
           <input type='text' 
           className='titletext'
            id='title'
@@ -50,4 +68,4 @@ e.preventDefault();
   )
 }
 
-export default TodoForm
+export default TodoForm;

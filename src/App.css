@@ -76,3 +76,21 @@ input{
   border: 1px solid transparent;
   /* box-shadow: 0px 3px 15px rgba(113,115,119,0.5); */
 }
+
+
+.todo-list{
+  width: 80%;
+  border: 1px solid #008080;
+  margin: auto;
+  margin-top: 10%;
+  box-shadow: -8px -8px 15px rgba(255,255,255, 0.1);
+  background-color: transparent;
+}
+
+.todo-items{
+  color: white;
+  width: 80%;
+  border: 1px solid #008080;
+  justify-content: center;
+  margin: auto;
+}

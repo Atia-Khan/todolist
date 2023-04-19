@@ -11,7 +11,7 @@ e.preventDefault();
   }
   return (
     <div>
-      <h4>add tofay toddo</h4>
+      <h4>Add today's Todos</h4>
       <div className='main-section'>
         <form className='form-section' onSunbmit={handleForm}>
           <label >Title: </label>
@@ -19,7 +19,7 @@ e.preventDefault();
           className='titletext'
            id='title'
            name='Title'
-           value={title}
+           value={inputTitle}
            onChange={e => setInputTitle(e.target.value)}
 />
 
@@ -28,7 +28,7 @@ e.preventDefault();
           className='titletext'
            id='desc'
            name='Desc'
-           value={desc}
+           value={inputDesc}
            onChange={e => setInputDesc(e.target.value)}
 />
 
@@ -37,9 +37,11 @@ e.preventDefault();
           className='titletext'
            id='date'
            name='date'
-           value={date}
+           value={inputDate}
            onChange={e => setInputDate(e.target.value)}
 />
+
+<button type='submit'>Submit the Form</button>
 
         </form>
 
